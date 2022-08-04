@@ -1,0 +1,41 @@
+//IMPORTANT ISSUES & NOTES
+//To-Do App with React & React-Router-DOM
+
+**To install REACT ROUTER
+*In the terminal, `npm install react-router-dom
+
+**There's a compatibility bug between react-router-dom@5.2.2 & react@18.2.0 and at least react-router-dom@5.3.3 is needed to fix a compatibility bug between RRDv5 and REACTv18. However, on RRDv6 SWITCH is replaced with ROUTES
+
+**TO USE THE TODO APP THROUGH THE `BUILD FOLDER`
+*Open VScode with the folder `build` via file explorer
+*Open the file `index.html`
+*Open the file with Live Server
+*The App will be ready to be used with the root link
+
+**Deleting tasks using React State Hook
+*Writing this inside the function tag has worked
+    const onDelete = (todo)=>{
+    console.log("I am on delete of todo", todo);
+    setTodos(todos.filter((e)=>{
+      return e!==todo;
+    }));
+    }
+
+**Add to do issue of not being able to write anything in the box after adding the fixed value
+*To fix that inside input tag use `onChange={(e)=>{setTitle(e.target.value)}}`
+    <input type="text" value={title} onChange={(e)=>{setTitle(e.target.value)}} id="title"/>
+    <input type="text" value={desc} onChange={(e)=>{setDesc(e.target.value)}} id="desc"/>
+
+**To deal with the issue of automatic reloading in AddToDo, add `event.preventDefault()` in the function
+*The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur
+
+**Some very useful codes to be noted
+    *if(!title || !desc){
+        alert("Title or Description can not be blank")
+      }; [from AddToDo.js]
+    
+    *{props.todos.length===0? "No todos to display":
+        props.todos.map((todo)=>{
+          return <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete}/>
+        })} [from Todos.js]
+
